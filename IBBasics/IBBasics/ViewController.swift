@@ -20,9 +20,41 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         myButton.setTitleColor(.red, for: .normal)
-        // Do any additional setup after loading the view.
+        
+        myButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        
     }
 
-
+    @IBAction func switchOn(_ sender: UISwitch) {
+        if sender.isOn {
+            print("Is on")
+        } else {
+            print("In off")
+        }
+    }
+    
+    @IBAction func sliderSlide(_ sender: UISlider) {
+        print(sender.value)
+    }
+    
+    @IBAction func keyboardReturnKeyTapped(_ sender: UITextField) {
+        if let text = sender.text {
+            print(text)
+        }
+    }
+    
+    @IBAction func textChange(_ sender: UITextField) {
+        if let text = sender.text {
+            print(text)
+        }
+    }
+    
+    @IBAction func respondToTapGesture(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: view)
+        print(location)
+    }
+    
+    
+    
 }
 
