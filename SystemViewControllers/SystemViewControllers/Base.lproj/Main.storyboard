@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SystemViewControllers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YU8-GH-nHY">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="872219e39469e56ff5742581122212bf" translatesAutoresizingMaskIntoConstraints="NO" id="tyf-qn-hVM">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="778"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="EF4-V9-Fb5">
+                                        <rect key="frame" x="0.0" y="788" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Td-Rp-7aA">
+                                                <rect key="frame" x="0.0" y="0.0" width="54" height="30"/>
+                                                <state key="normal" title="Share"/>
+                                                <connections>
+                                                    <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MON-nB-YgT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmG-uK-lL8">
+                                                <rect key="frame" x="107" y="0.0" width="53.5" height="30"/>
+                                                <state key="normal" title="Safari"/>
+                                                <connections>
+                                                    <action selector="safariButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mQv-97-1vY"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znG-1j-iPF">
+                                                <rect key="frame" x="213.5" y="0.0" width="54" height="30"/>
+                                                <state key="normal" title="Camera"/>
+                                                <connections>
+                                                    <action selector="photosButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xbn-MI-14C"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9w-Cf-wUh">
+                                                <rect key="frame" x="320.5" y="0.0" width="53.5" height="30"/>
+                                                <state key="normal" title="Email"/>
+                                                <connections>
+                                                    <action selector="emailButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t9x-rr-157"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tyf-qn-hVM" firstAttribute="top" secondItem="YU8-GH-nHY" secondAttribute="top" id="EWC-4o-FJs"/>
+                                    <constraint firstItem="EF4-V9-Fb5" firstAttribute="leading" secondItem="YU8-GH-nHY" secondAttribute="leading" id="Ouv-rS-4c7"/>
+                                    <constraint firstAttribute="bottom" secondItem="EF4-V9-Fb5" secondAttribute="bottom" id="S37-rW-yyw"/>
+                                    <constraint firstAttribute="trailing" secondItem="EF4-V9-Fb5" secondAttribute="trailing" id="VCJ-3H-UC2"/>
+                                    <constraint firstItem="EF4-V9-Fb5" firstAttribute="top" secondItem="tyf-qn-hVM" secondAttribute="bottom" constant="10" id="Xfn-3Q-kfx"/>
+                                    <constraint firstAttribute="trailing" secondItem="tyf-qn-hVM" secondAttribute="trailing" id="eGX-PR-vmP"/>
+                                    <constraint firstItem="tyf-qn-hVM" firstAttribute="leading" secondItem="YU8-GH-nHY" secondAttribute="leading" id="kah-R2-kaI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="YU8-GH-nHY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0eU-qa-4u9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YU8-GH-nHY" secondAttribute="bottom" id="85v-Wf-eSa"/>
+                            <constraint firstItem="YU8-GH-nHY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="KuB-ca-xOw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YU8-GH-nHY" secondAttribute="trailing" constant="20" id="lIn-An-XWy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="tyf-qn-hVM" id="dms-AB-5qC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="872219e39469e56ff5742581122212bf" width="1920" height="1080"/>
+    </resources>
+</document>
