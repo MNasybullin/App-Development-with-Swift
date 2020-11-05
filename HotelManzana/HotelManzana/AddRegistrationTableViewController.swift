@@ -19,7 +19,20 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var checkOutDateLabel: UILabel!
     @IBOutlet weak var checkOutDatePicker: UIDatePicker!
     
+    let checkInDatePickerCellIndexPath = IndexPath(row: 1, section: 1)
+    let checkOutDatePickerCellIndexPath = IndexPath(row: 3, section: 1)
     
+    var isCheckInDatePickerShown: Bool = false {
+        didSet {
+            checkInDatePicker.isHidden = !isCheckInDatePickerShown
+        }
+    }
+    
+    var isCheckOutDatePickerShown: Bool = false {
+        didSet {
+            checkOutDatePicker.isHidden = !isCheckOutDatePickerShown
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +71,62 @@ class AddRegistrationTableViewController: UITableViewController {
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateViews()
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (checkInDatePickerCellIndexPath.section, checkInDatePickerCellIndexPath.row):
+            if isCheckInDatePickerShown {
+                return 216.0
+            } else {
+                return 0.0
+            }
+        case (checkOutDatePickerCellIndexPath.section, checkOutDatePickerCellIndexPath.row):
+            if isCheckOutDatePickerShown {
+                return 216.0
+            } else {
+                return 0.0
+            }
+        default:
+            return 43.5
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        switch (indexPath.section, indexPath.row) {
+        case (checkInDatePickerCellIndexPath.section, checkInDatePickerCellIndexPath.row - 1):
+            
+            if isCheckInDatePickerShown {
+                isCheckInDatePickerShown = false
+            } else if isCheckOutDatePickerShown {
+                isCheckOutDatePickerShown = false
+                isCheckInDatePickerShown = true
+            } else {
+                isCheckInDatePickerShown = true
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        
+        case (checkOutDatePickerCellIndexPath.section, checkOutDatePickerCellIndexPath.row - 1):
+            
+            if isCheckOutDatePickerShown {
+                isCheckOutDatePickerShown = false
+            } else if isCheckInDatePickerShown {
+                isCheckInDatePickerShown = false
+                isCheckOutDatePickerShown = true
+            } else {
+                isCheckOutDatePickerShown = true
+            }
+            
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            
+        default:
+            break
+        }
     }
     
 }
