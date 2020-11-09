@@ -46,6 +46,9 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
     @IBOutlet weak var roomTypeLabel: UILabel!
     var roomType: RoomType?
     
+    @IBOutlet weak var doneBarButtonItem: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +58,12 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
         updateDateViews()
         updateNumberOfGests()
         updateRoomType()
+        updateChargesSection()
+        if self.registration == nil {
+            doneBarButtonItem.isEnabled = false
+        } else {
+            doneBarButtonItem.isEnabled = true
+        }
     }
 
     func updateDateViews() {
@@ -65,6 +74,10 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
         
         checkInDateLabel.text = dateFormatter.string(from: checkInDatePicker.date)
         checkOutDateLabel.text = dateFormatter.string(from: checkOutDatePicker.date)
+        
+        let numberOfNights = Calendar.current.dateComponents([.day], from: checkInDatePicker.date, to: checkOutDatePicker.date).day
+        numberOfNightsChargesLabel.text = "\(numberOfNights!)"
+        updateChargesSection()
     }
     
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -143,6 +156,7 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
     func updateRoomType() {
         if let roomType = roomType {
             roomTypeLabel.text = roomType.name
+            doneBarButtonItem.isEnabled = true
         } else {
             roomTypeLabel.text = "No Set"
         }
@@ -151,6 +165,7 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
     func didSelect(roomType: RoomType) {
         self.roomType = roomType
         updateRoomType()
+        updateChargesSection()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -180,6 +195,35 @@ class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeT
         let hasWifi = wifiSwitch.isOn
         
         return Registration(firstName: firstName, lastName: lastName, emailAddress: email, checkInDate: checkInDate, checkOutDate: checkOutDate, numberOfAdults: numberOfAdults, numberOfChildren: numberOfChildren, roomType: roomType, wifi: hasWifi)
+    }
+    
+    
+    @IBOutlet weak var numberOfNightsChargesLabel: UILabel!
+    @IBOutlet weak var roomTypeChargesLabel: UILabel!
+    @IBOutlet weak var wifiChargesLabel: UILabel!
+    @IBOutlet weak var totalChargesLabel: UILabel!
+    
+    func updateChargesSection() {
+        var total = 0
+        if roomType == nil {
+            roomTypeChargesLabel.text = "No Set"
+        } else {
+            let price = roomType!.price * Int(numberOfNightsChargesLabel.text!)!
+            roomTypeChargesLabel.text = "\(roomType!.shortName)     $ \(price)"
+            total += price
+        }
+        if wifiSwitch.isOn == true {
+            let price = 10 * Int(numberOfNightsChargesLabel.text!)!
+            wifiChargesLabel.text = "Yes     $ \(price)"
+            total += price
+        } else {
+            wifiChargesLabel.text = "No     $ 0"
+        }
+        totalChargesLabel.text = "$ \(total)"
+    }
+    
+    @IBAction func wifiChangedValue(_ sender: UISwitch) {
+        updateChargesSection()
     }
     
 }
