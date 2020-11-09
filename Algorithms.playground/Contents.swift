@@ -47,5 +47,5 @@ func binarySearch(numbers: [Int], searchNumber: Int) -> Int? {
     }
 }
 
-var search = binarySearch(numbers: sort, searchNumber: 10)
-print(search!)
+var search = binarySearch(numbers: sort, searchNumber: -5)
+print(search)
