@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Contest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="akx-lg-Ss5">
+                                <rect key="frame" x="45" y="286.5" width="324" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpt-0c-Zez">
+                                <rect key="frame" x="189" y="360.5" width="36" height="30"/>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="sendButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qxj-T7-zTN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email address to enter the competition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDl-Ur-UJz">
+                                <rect key="frame" x="18" y="231" width="378" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kpt-0c-Zez" firstAttribute="top" secondItem="akx-lg-Ss5" secondAttribute="bottom" constant="40" id="0CT-ua-cbW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="akx-lg-Ss5" secondAttribute="trailing" constant="45" id="23C-zW-BNj"/>
+                            <constraint firstItem="akx-lg-Ss5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="45" id="3Li-pa-t38"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kpt-0c-Zez" secondAttribute="trailing" constant="189" id="6bo-0f-GHn"/>
+                            <constraint firstItem="hDl-Ur-UJz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="187" id="9dh-qR-K7y"/>
+                            <constraint firstItem="akx-lg-Ss5" firstAttribute="top" secondItem="hDl-Ur-UJz" secondAttribute="bottom" constant="35" id="Edy-AS-aUT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hDl-Ur-UJz" secondAttribute="trailing" constant="18" id="pdO-Ba-qaL"/>
+                            <constraint firstItem="kpt-0c-Zez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="189" id="vl0-sR-csj"/>
+                            <constraint firstItem="hDl-Ur-UJz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="18" id="xoS-2e-an9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="akx-lg-Ss5" id="qS2-qt-OtW"/>
+                        <segue destination="uAt-aB-zXC" kind="show" identifier="SendButtonIdentifier" id="pNV-TZ-NPh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kJZ-p2-TGX">
+            <objects>
+                <viewController id="uAt-aB-zXC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HJl-DR-v7C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have successfully entered the competition!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuJ-Yi-w9U">
+                                <rect key="frame" x="27" y="292" width="361" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Kzj-cV-vD9" firstAttribute="bottom" secondItem="fuJ-Yi-w9U" secondAttribute="bottom" constant="495" id="H4l-Tw-UDU"/>
+                            <constraint firstItem="fuJ-Yi-w9U" firstAttribute="leading" secondItem="Kzj-cV-vD9" secondAttribute="leading" constant="27" id="XtQ-Iy-Qhz"/>
+                            <constraint firstItem="Kzj-cV-vD9" firstAttribute="trailing" secondItem="fuJ-Yi-w9U" secondAttribute="trailing" constant="26" id="iJl-Ck-n1B"/>
+                            <constraint firstItem="fuJ-Yi-w9U" firstAttribute="top" secondItem="Kzj-cV-vD9" secondAttribute="top" constant="292" id="vb0-ed-aEJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kzj-cV-vD9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5gO-7y-Fql"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOe-VZ-TRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="138"/>
+        </scene>
+    </scenes>
+</document>
