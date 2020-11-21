@@ -31,6 +31,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(updateOrderBadge), name: MenuController.orderUpdateNotification, object: nil)
         
         orderTabBarItem = (self.window!.rootViewController! as! UITabBarController).viewControllers![1].tabBarItem
+        
+        updateOrderBadge()
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -57,6 +60,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        MenuController.shared.saveOrder()
+        MenuController.shared.saveItems()
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
